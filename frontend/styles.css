@@ -1,0 +1,54 @@
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+/* navigator header*/
+nav {
+    background-color: #FFC300;
+    display:flex;
+    justify-content: center;
+}
+
+#add-deck {
+    position:absolute; 
+    right:80px; 
+    top:20px;
+}
+
+
+/* main display showing decks */
+#main-display {
+    margin:20px;
+    display:flex;
+    justify-content: center;
+}
+
+.card {
+    display: flex;
+    background-color: lightgrey;
+    width: 220px;
+    height: 300px;
+    margin: 30px;
+    border-radius: 25px;
+}
+.card span {
+    margin: auto;
+}
+
+.button {
+    border-radius: 15px;
+}
+
+/*everything inside main display*/  
+#input-display {
+    display: flex;
+    justify-content: center;
+}
+
+#input-display button {
+    border: 0px;
+    background-color: #FFC300;
+    padding:  12px 30px;
+}
+
