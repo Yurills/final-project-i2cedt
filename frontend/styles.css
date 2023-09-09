@@ -1,5 +1,6 @@
 body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #BFE9FF;
 }
 
 
@@ -17,38 +18,51 @@ nav {
 }
 
 
-/* main display showing decks */
-#main-display {
-    margin:20px;
-    display:flex;
-    justify-content: center;
+/*main display-screen showing question*/
+#wrapper {
+    display: block;
+    text-align: center;
+    margin: 50px;
 }
 
-.card {
+#main__display-screen {
     display: flex;
-    background-color: lightgrey;
-    width: 220px;
-    height: 300px;
-    margin: 30px;
+    justify-content: center;
+    border: 12px solid black;
+    border-left: 0px;
+    border-top: 0px;
     border-radius: 25px;
+    height: 500px;
+    width: 720px;
+    background-color: #FFFFFF;
+    margin: 40px auto;
 }
-.card span {
+#main__display-screen span {
     margin: auto;
 }
 
-.button {
-    border-radius: 15px;
-}
 
-/*everything inside main display*/  
-#input-display {
+#main__user-input {
     display: flex;
     justify-content: center;
-}
+    margin: auto;
+    height: 40px
 
-#input-display button {
-    border: 0px;
-    background-color: #FFC300;
-    padding:  12px 30px;
 }
+#main__user-input--inputbar {
+    border: none;
+    border-radius: 15px 0px 0px 15px;
+    width: 720px;
 
+}
+#main__user-input--inputbutton {
+    border:none;
+    border-radius: 0px 15px 15px 0px;
+    width: 125px;
+
+    background-color: #ffae00;
+
+}
+#main_user-input--inputbutton:hover{  /* not working don't know why */
+    background-color: rgba(145, 182, 168, 0.11);
+}
