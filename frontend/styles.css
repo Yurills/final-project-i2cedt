@@ -1,6 +1,19 @@
 body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: #BFE9FF;
+    
+}
+.default-card{
+    width: 300px;
+    height: 400px;
+    border-radius: 25px;
+    background-color: #FFFFFF;
+}
+.small-square-button{
+    width:50px;
+    height:50px;
+    border-radius: 10px;
+    border: none;
 }
 
 
@@ -9,6 +22,7 @@ nav {
     background-color: #FFC300;
     display:flex;
     justify-content: center;
+    margin:0
 }
 
 #add-deck {
@@ -17,15 +31,62 @@ nav {
     top:20px;
 }
 
+/*main display-screen showing deck choosing before start*/
+#main__display--deckchooser--wrapper {
+    display:flex;
+    justify-content: center;
+}
+#main__display--deck {
+    background-color: #FFFFFF;
+    display:flex;
+}
+#main__display--deck span {
+    margin: auto;
+}
+#main__display--buttonleft {
+    flex:0 0 auto;
+    margin:auto 15px;
+    width:50px;
+    height: 100px;
+    background-color: #ffae00;
+    
+}
+#main__display--buttonright {
+    flex:0 0 auto;
+    margin:auto 15px;
+    width:50px;
+    height: 100px;
+    background-color: #ffae00;
+}
+#main__display--buttonselect-deck {
+    background-color: rgb(129, 202, 129);
+    flex: 0 0 auto;
+    margin:15px;
+    width:200px;
+    height: 30px;
+}
+
+
+
+
 
 /*main display-screen showing question*/
-#wrapper {
+#main__toolbar--createdeck {
+    margin:auto;
+
+}
+
+
+#main__wrapper {
     display: block;
     text-align: center;
     margin: 50px;
 }
+#main__display--screen {
+    display:none;
+}
 
-#main__display-screen {
+#main__display--cardplay {
     display: flex;
     justify-content: center;
     border: 12px solid black;
@@ -37,7 +98,7 @@ nav {
     background-color: #FFFFFF;
     margin: 40px auto;
 }
-#main__display-screen span {
+#main__display--cardplay span {
     margin: auto;
 }
 
@@ -65,4 +126,10 @@ nav {
 }
 #main_user-input--inputbutton:hover{  /* not working don't know why */
     background-color: rgba(145, 182, 168, 0.11);
+}
+
+/*modal screen*/
+
+#modal-display {
+    display: none;
 }

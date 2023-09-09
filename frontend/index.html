@@ -11,8 +11,9 @@
             </nav>
         </section>
 
-        <section id="modal-window">
-            <div >
+        <section id="modal-display">
+            <div id="modal__wrapper">
+                <!---- <button class="modal__button"></button> -->
                 <div id="card-display">
                 </div>
             </div>
@@ -20,13 +21,26 @@
         </section>
 
         <section id="main-display">
-            <div id="wrapper">
-                <div id ="main__display-screen">
+            <div id="main__wrapper">
+                <div id="main__display--deckchooser">
+                    <div id="main__display--deckchooser--wrapper">
+                    <button class="small-square-button" id="main__display--buttonleft"></button>
+                    <div id="main__display--deck" class="default-card"> <span>DECK NAME</span></div>
+                    <button class="small-square-button"id="main__display--buttonright"></button>
+                    </div>
+                    <div id="main__display--buttonselect--wrapper">
+                    <button class="small-square-button" id="main__display--buttonselect-deck">CONFIRM</button>
+                    </div>
+                    
+                </div>
+                <div id="main__display--screen">
+                <div id="main__display--cardplay">
                     <span>text here</span>
                 </div>
                 <div id="main__user-input">
                     <input class="user-input" id="main__user-input--inputbar">
-                    <button class="button" id="main__user-input--inputbutton">→</button>
+                    <button id="main__user-input--inputbutton">→</button>
+                </div>
                 </div>
             </div>
 
