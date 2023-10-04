@@ -39,8 +39,25 @@
         </section>
 
         <section id="Flashcard">
+            <div class="DeckName">Deck Name : </div> 
             <div id="card_wrapper">
-                <div id="card_holder"></div>
+                <div id="card_holder">
+                    <div id="FlashCard-Return"> 
+                        <button id = "Return-Button"><i class="fa-solid fa-arrow-left"></i></button>
+                    </div>
+                    <div id = "Question">Who is the most Racist Man ever?</div>
+                    <div id = "Answer-Button">
+                        <button id = "Correct"><i class="fa-solid fa-check" style="color: green;"></i> I know</button>
+                        <button id = "Wrong"><i class="fa-solid fa-xmark " style="color: red"></i> Nah Uh</button>
+                    </div>
+                </div>
+            </div>
+            <div id = "ProgressBar">
+                <div id= "ProgressCounter">Current: 0/0</div>
+                <div id = ProgressBar-Body>
+                    <div id="ProgressBar-Box"></div>
+                    <!--div id = "ProgressBar-Data"></div-->
+                </div>
             </div>
         </section>
         <script src="./script.js"></script>

@@ -27,6 +27,13 @@ let switchDisplay_Start = ()=> {
     document.getElementById("Flashcard").style.display = "block";
 }
 
+let switchDisplay_Return = ()=> {
+    document.getElementById("Main-Display").style.display = "block";
+    document.getElementById("Flashcard").style.display = "none";
+}
+
+let Flashcard_Return_Button = document.getElementById("Return-Button");
+Flashcard_Return_Button.addEventListener('click', switchDisplay_Return);
 
 let button_MainDisplay__START = document.getElementById("Main-Display__Start-Button");
 button_MainDisplay__START.addEventListener('click', switchDisplay_Start);
