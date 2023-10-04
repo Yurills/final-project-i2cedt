@@ -1,24 +1,19 @@
+// button selection in main display
+let button_MainDisplay = document.getElementsByClassName("deckname-button");
 
-// Test to change main display text when summitButton is clicked
-let summitButton = document.getElementById("main__user-input--inputbutton");
-summitButton.addEventListener("click", () => {
-    let TemporaryInput = document.getElementById("main__user-input--inputbar");
-    let MainDisplay = document.querySelector("#main__display--cardplay span");
-    let TemporaryInputText = TemporaryInput.value;
+let button_Selection_Value;
+let button_Selection = (event)=>{
+    for (let i=0;i<button_MainDisplay.length;i++) {
+        button_MainDisplay[i].style.backgroundColor = "#8898E0";
+        button_MainDisplay[i].style.borderColor = "#788be0" 
+    }
+    button_Selection_Value = event.target.value;
+    console.log(button_Selection_Value);
+    document.getElementById(button_Selection_Value).style.backgroundColor = "#ffd683";
+    document.getElementById(button_Selection_Value).style.borderColor = "#ae8454";
+}
 
-    MainDisplay.innerHTML = TemporaryInputText;
-    // RESET DISPLAY Just in case there is NO INPUT
-    if (TemporaryInputText == "") MainDisplay.innerHTML = "text here";
-    TemporaryInput.value = "";
-});
+for (let i=0;i<button_MainDisplay.length;i++) {
+    button_MainDisplay[i].addEventListener('click', button_Selection);   
+}
 
-
-//Switching state of display between before and after choosing a deck to play and playing WORK IS PROGRESS
-let chooseDeckButton = document.getElementById("main__display--buttonselect-deck");
-chooseDeckButton.addEventListener("click", () => {
-    let DeckSelectingScreen = document.getElementById("main__display--deckchooser");
-    let DeckPlayingScreen = document.getElementById("main__display--screen");
-    DeckSelectingScreen.style.display = "none";
-    DeckPlayingScreen.style.display = "block";
-
-})

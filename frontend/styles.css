@@ -123,7 +123,7 @@ body {
     transition: 0.3s;
 }
 
-.Deck1 ,.Deck2,.Deck3,.Deck4,.Deck5{
+.deckname-button{
     z-index: 1;
     font-family: 'Palanquin Dark', sans-serif;
     width: 10%; 
@@ -139,13 +139,13 @@ body {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.Deck1:hover,.Deck2:hover,.Deck3:hover,.Deck4:hover,.Deck5:hover{
+.deckname-button:hover{
     background-color: #a0b1fc;
     border-color: #788be0;
     transition: 0.3s;
 }
 
-.Deck1:active{
+.deckname-button:active{
     background-color: black;
     transition: 0.3s;
 }
