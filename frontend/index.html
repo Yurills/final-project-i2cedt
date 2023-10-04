@@ -1,45 +1,53 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Palanquin+Dark&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./styles.css">
         <script src="https://kit.fontawesome.com/f596711b9e.js" crossorigin="anonymous"></script>
     </head>
+
     <body>
         <section id="header">
-            <p id="head-text"><i class="fa-solid fa-brain"></i> Mindflayer</p>
+            <nav>
+                <button class="fa-solid fa-arrow-left-long" id = "return-button"></button>
+                <p id="logo" style="text-align: center;">placeholder</p>
+            </nav>
         </section>
-
-        <section id = "Main-Display">
-            <div id = "Holder">
-                <div id = "Main-Box">
-                    <span id = "Deck-Select">
-                        Select Your Deck
-                    </span>
-
-                    <div id="wrapper--Button-Holder">
-                    <div id = "Button-Holder">
-                        <button class = "Deck1"> Deck 1 </button>
-                        <button class = "Deck2"> Deck 2 </button>
-                        <button class = "Deck3"> Deck 3 </button>
-                        <button class = "Deck4"> Deck 4 </button>
-                        <button class = "Deck5"> Deck 5 </button>
-                    </div>
-                    </div>
-
-                    <div id = "Actions">
-                        <button class="Start-Button">START</button>
-                        <button class="Edit-Button">EDIT</button>
-                    </div>
-
+        <section id="modal-display">
+            <div id="modal__wrapper">
+                <!---- <button class="modal__button"></button> -->
+                <div id="card-display">
                 </div>
             </div>
-            
-            
-            
         </section>
+
+        <section id="main-display">
+            <div id="main__wrapper">
+                <div id="main__display--deckchooser">
+                    <div id="main__display--deckchooser--wrapper">
+                    <button class="small-square-button" id="main__display--buttonleft"></button>
+                    <div id="main__display--deck" class="default-card"> <span>DECK NAME</span></div>
+                    <button class="small-square-button"id="main__display--buttonright"></button>
+                    </div>
+                    <div id="main__display--buttonselect--wrapper">
+                    <button class="small-square-button" id="main__display--buttonselect-deck">CONFIRM</button>
+                    </div>
+                    
+                </div>
+                <div id="main__display--screen">
+                <div id="main__display--cardplay">
+                    <span>text here</span>
+                </div>
+                <div id="main__user-input">
+                    <input class="user-input" id="main__user-input--inputbar">
+                    <button id="main__user-input--inputbutton">→</button>
+                </div>
+                </div>
+            </div>
+
+        </section>
+        <div class="dirt"></div>
+        <div class="grass"></div>
+
         <script src="./script.js"></script>
     </body>
 </html>
