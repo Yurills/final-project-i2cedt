@@ -1,5 +1,5 @@
 //Test random stuff here
-const LoadDeck = [ //This should be the data from the database (JSON) which is the same as chosen deck
+export const LoadDeck = [ //This should be the data from the database (JSON) which is the same as chosen deck
         {
             "DeckID": 1,
             "Deckname": "Capital city",

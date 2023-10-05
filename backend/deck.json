@@ -1,0 +1,27 @@
+{
+    "DeckID": 1,
+    "Deckname": "Capital city",
+    "Slots": 4,
+    "Deck_data":[
+        {
+            "Question":"What is the capital of the United States?",
+            "Answer":"Washington, D.C.",
+            "pass": false
+        },
+        {
+            "Question":"What is the capital of the United Kingdom?",
+            "Answer":"London",
+            "pass": false
+        },
+        {
+            "Question":"What is the capital of France?",
+            "Answer":"Paris",
+            "pass": false
+        },
+        {
+            "Question":"What is the capital of Germany?",
+            "Answer":"Berlin",
+            "pass": false
+        }
+    ]
+}
