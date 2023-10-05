@@ -1,65 +1,85 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Palanquin+Dark&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="./styles.css">
-        <script src="https://kit.fontawesome.com/f596711b9e.js" crossorigin="anonymous"></script>
-    </head>
-    <body>
-        <section id="header">
-            <p id="head-text"><i class="fa-solid fa-brain"></i> Mindflayer</p>
-        </section>
 
-        <section id = "Main-Display">
-            <div id = "Holder">
-                <div id = "Main-Box">
-                    <span id = "Deck-Select">
-                        Select Your Deck
-                    </span>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Palanquin+Dark&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://kit.fontawesome.com/f596711b9e.js" crossorigin="anonymous"></script>
+</head>
 
-                    <div id="wrapper--Button-Holder">
-                    <div id = "Button-Holder">
-                        <button class="deckname-button" id = "1" value="1"> Deck 1 </button>
-                        <button class="deckname-button" id = "2" value="2"> Deck 2 </button>
-                        <button class="deckname-button" id = "3" value="3"> Deck 3 </button>
-                        <button class="deckname-button" id = "4" value="4"> Deck 4 </button>
-                        <button class="deckname-button" id = "5" value="5"> Deck 5 </button>
-                    </div>
-                    </div>
+<body>
+    <section id="header">
+        <p id="head-text"><i class="fa-solid fa-brain"></i> Mindflayer</p>
+    </section>
 
-                    <div id = "Actions">
-                        <button id="Main-Display__Start-Button">START</button>
-                        <button id="Main-Display__Edit-Button">EDIT</button>
-                    </div>
+    <section id="Main-Display">
+        <div id="Holder">
+            <div id="Main-Box">
+                <span id="Deck-Select">
+                    Select Your Deck
+                </span>
 
-                </div>
-            </div>
-        </section>
-
-        <section id="Flashcard">
-            <div class="DeckName">Deck Name : </div> 
-            <div id="card_wrapper">
-                <div id="card_holder">
-                    <div id="FlashCard-Return"> 
-                        <button id = "Return-Button"><i class="fa-solid fa-arrow-left"></i></button>
-                    </div>
-                    <div id = "Question">Who is the most Racist Man ever?</div>
-                    <div id = "Answer-Button">
-                        <button id = "Correct"><i class="fa-solid fa-check" style="color: green;"></i> I know</button>
-                        <button id = "Wrong"><i class="fa-solid fa-xmark " style="color: red"></i> Nah Uh</button>
+                <div id="wrapper--Button-Holder">
+                    <div id="Button-Holder">
+                        <button class="deckname-button" id="1" value="1"> Deck 1 </button>
+                        <button class="deckname-button" id="2" value="2"> Deck 2 </button>
+                        <button class="deckname-button" id="3" value="3"> Deck 3 </button>
+                        <button class="deckname-button" id="4" value="4"> Deck 4 </button>
+                        <button class="deckname-button" id="5" value="5"> Deck 5 </button>
                     </div>
                 </div>
+
+                <div id="Actions">
+                    <button id="Main-Display__Start-Button">START</button>
+                    <button id="Main-Display__Edit-Button">EDIT</button>
+                </div>
+
             </div>
-            <div id = "ProgressBar">
-                <div id= "ProgressCounter">Current: 0/0</div>
-                <div id = ProgressBar-Body>
-                    <div id="ProgressBar-Box"></div>
-                    <!--div id = "ProgressBar-Data"></div-->
+        </div>
+    </section>
+
+    <section id="Flashcard">
+        <div class="DeckName">Deck Name : </div>
+        <div id="card_wrapper">
+            <div id="card_holder">
+                <div id="FlashCard-Return">
+                    <button id="Return-Button"><i class="fa-solid fa-arrow-left"></i></button>
+                </div>
+                <div id="Question">Who is the most Racist Man ever?</div>
+                <div id="Answer-Button">
+                    <button id="Correct"><i class="fa-solid fa-check" style="color: green;"></i> I know</button>
+                    <button id="Wrong"><i class="fa-solid fa-xmark " style="color: red"></i> Nah Uh</button>
                 </div>
             </div>
-        </section>
-        <script src="./scripts/script.js"></script>
-    </body>
+        </div>
+        <div id="ProgressBar">
+            <div id="ProgressCounter">Current: 0/0</div>
+            <div id=ProgressBar-Body>
+                <div id="ProgressBar-Box"></div>
+                <!--div id = "ProgressBar-Data"></div-->
+            </div>
+        </div>
+    </section>
+
+    <section id="Edit">
+        <button id="Edit-Return-Button"><i class="fa-solid fa-arrow-left"></i></button>
+        <div class="Edit-DeckName">Deck Name: <input id="Input-DeckName" placeholder="Type Your Deck Name"></div>
+        <div id="Edit-Wrapper">
+            <button id="Remove-QA">Remove</button>
+            <div id="Question-Box">
+                <div id="QuestionNumber">Question 1: </div>
+                <input id="Input-Question" placeholder="What is Your Question I Wonder?">
+            </div>
+            <div id="Answer-Box">
+                <div id="AnswerNumber">Answer 1: </div>
+                <input id="Input-Answer" placeholder="Answer for the Question above">
+            </div>
+        </div>
+        <button id="Add-QA"><i class="fa-solid fa-plus"></i></button>
+    </section>
+    <script src="./scripts/script.js"></script>
+</body>
+
 </html>

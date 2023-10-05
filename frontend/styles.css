@@ -4,20 +4,23 @@ body {
     margin: 0;
     padding: 0;
 }
-#Main-Display{
+
+#Main-Display {
     display: block;
 }
+
 #Flashcard {
     display: none;
 }
-#header{
-    width: 100%; 
-    height: 100%; 
-    background: #8898E0; 
+
+#header {
+    width: 100%;
+    height: 100%;
+    background: #8898E0;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
 }
 
-#head-text{
+#head-text {
     text-align: center;
     font-size: 55px;
     margin-top: 0;
@@ -26,126 +29,129 @@ body {
     word-wrap: break-word;
 }
 
-.Main-Box{
+.Main-Box {
     margin: auto;
     margin-top: 50px;
     width: 75%;
     height: 75%;
     padding: 10px;
     background: #D3DBFF;
-  }
+}
 
-#Holder{
-    display:flex;
-    width: 80%; 
-    height:500px; 
+#Holder {
+    display: flex;
+    width: 80%;
+    height: 500px;
     justify-content: center;
     margin: auto;
 }
 
-#Button-Holder{
-    display:inline-block;
+#Button-Holder {
+    display: inline-block;
     z-index: 1;
-    width: 80%; 
-    height: 116px;  
-    background: #FEFEFE; 
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
+    width: 80%;
+    height: 116px;
+    background: #FEFEFE;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 23px;
     text-align: center;
     justify-content: center;
     margin: 20px;
 }
 
-#Main-Box{
-    width: 100%; 
-    height: 100%; 
-    display:flex;
-    flex-direction: column; 
-    background: #D3DBFF; 
+#Main-Box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #D3DBFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     justify-content: center;
 }
 
-#Deck-Select{
-    z-index: 0; 
-    text-align: center; 
-    color: black; font-size: 400%; 
-    font-family:  Palanquin Dark;
-    font-weight: 400; 
+#Deck-Select {
+    z-index: 0;
+    text-align: center;
+    color: black;
+    font-size: 400%;
+    font-family: Palanquin Dark;
+    font-weight: 400;
     word-wrap: break-word;
 }
 
-#Actions{
+#Actions {
     height: 100px;
     display: flex;
     justify-content: center;
 }
 
 #wrapper--Button-Holder {
-    display:flex;
+    display: flex;
     justify-content: center;
-    margin:20px 0px;
+    margin: 20px 0px;
 }
-#Main-Display__Start-Button, #Main-Display__Edit-Button{
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+#Main-Display__Start-Button,
+#Main-Display__Edit-Button {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bold;
     font-size: 15px;
     margin-left: 4%;
-    margin-right: 4%;   
+    margin-right: 4%;
     border-color: black;
     border-width: 3px;
     box-shadow: 4px 4px 0px black;
 }
 
-#Main-Display__Start-Button{
+#Main-Display__Start-Button {
     width: 129px;
     height: 46px;
     background-color: #D9FFCF;
 }
 
-#Main-Display__Start-Button:hover{
+#Main-Display__Start-Button:hover {
     background-color: #e6ffe0;
     transition: 0.3s;
 }
 
-#Main-Display__Edit-Button{
+#Main-Display__Edit-Button {
     width: 129px;
     height: 46px;
     background-color: #CBECFF;
 }
 
-#Main-Display__Edit-Button:hover{
+#Main-Display__Edit-Button:hover {
     background-color: #dff2fd;
     transition: 0.3s;
 }
 
-.deckname-button{
+.deckname-button {
     z-index: 1;
     font-family: 'Palanquin Dark', sans-serif;
-    width: 10%; 
-    height: 50%; 
+    width: 10%;
+    height: 50%;
     background-color: #8898E0;
     border-color: #6473b9;
     margin-top: 3%;
     border-radius: 23px;
     margin-left: 4%;
-    margin-right: 4%;   
+    margin-right: 4%;
     color: white;
     font-size: 20px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.deckname-button:hover{
+.deckname-button:hover {
     background-color: #a0b1fc;
     border-color: #788be0;
     transition: 0.3s;
 }
 
-.DeckName{
+.DeckName {
     margin-left: 10%;
     font-size: 25px;
     font-weight: bold;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #7353CC;
 }
 
@@ -165,18 +171,18 @@ body {
     border-width: 3px;
 }
 
-#Question{
+#Question {
     margin-left: 14%;
     width: 75%;
     height: 200px;
     font-size: 50px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     justify-content: center;
     text-align: center;
     margin-top: 7.5%;
 }
 
-#Correct{
+#Correct {
     font-family: 'Palanquin Dark', sans-serif;
     font-size: 30px;
     margin-left: 10%;
@@ -188,31 +194,29 @@ body {
     color: white;
 }
 
-#Correct:hover{
-    background : #9fabdf;
-    transition: 0.3s;
-}
-
-#Wrong{
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-family: 'Palanquin Dark', sans-serif;
-    font-size: 30px;
-    margin-left: 10%;
-    width: 35%;
-    height: 40%;
-    background: #8898E0;
-}
-
-#Wrong:hover{
+#Correct:hover {
     background: #9fabdf;
     transition: 0.3s;
 }
 
+#Wrong {
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Palanquin Dark', sans-serif;
+    font-size: 30px;
+    margin-left: 10%;
+    width: 35%;
+    height: 40%;
+    background: #8898E0;
+}
 
+#Wrong:hover {
+    background: #9fabdf;
+    transition: 0.3s;
+}
 
-#ProgressBar{
+#ProgressBar {
     height: 40px;
     width: 80%;
     margin-left: 10%;
@@ -221,16 +225,17 @@ body {
     font-size: 20px;
     font-weight: bold;
     color: #7353CC;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: block;
     margin-top: 2%;
     position: absolute;
 }
-#ProgressCounter{
+
+#ProgressCounter {
     margin-left: 45%;
 }
 
-#ProgressBar-Box{
+#ProgressBar-Box {
     margin-top: 1.5%;
     height: 40px;
     width: 100%;
@@ -239,7 +244,7 @@ body {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-#ProgressBar-Data{
+#ProgressBar-Data {
     margin-top: 1.5%;
     height: 40px;
     width: 50%;
@@ -247,12 +252,12 @@ body {
     border-radius: 30px;
 }
 
-#FlashCard-Return{
+#FlashCard-Return {
     margin-top: 1%;
     margin-left: 2.5%;
 }
 
-#Return-Button{
+#Return-Button {
     padding: 0.3%;
     width: 5%;
     background: #fdabab;
@@ -262,7 +267,131 @@ body {
     font-size: 20px;
 }
 
-#Return-Button:hover{
+#Return-Button:hover {
     background: #ffc7c7;
     transition: 0.3s;
+}
+
+#Edit {
+    display: none;
+}
+
+#Edit-Return-Button {
+    padding: 0.3%;
+    width: 5%;
+    background: #fdabab;
+    border: #ff9393 solid;
+    border-width: 3px;
+    border-radius: 6px;
+    font-size: 20px;
+    margin-left: 10%;
+}
+
+#Edit-Return-Button:hover {
+    background: #ffc7c7;
+    transition: 0.3s;
+}
+
+.Edit-DeckName {
+    margin-bottom: 1.2%;
+    margin-left: 10%;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #7353CC;
+}
+
+#Input-DeckName {
+    width: 77%;
+    padding: 0.5%;
+    border-radius: 2px;
+    height: 20px;
+    border-color: gray;
+    font-family: 'Palanquin Dark', sans-serif;
+}
+
+#Edit-Wrapper {
+    margin-left: 10%;
+    background: #D3DBFF;
+    width: 80%;
+    height: 285px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#Remove-QA {
+    float: right;
+    background: #FF7878;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 0.7%;
+    border-width: 3px;
+}
+
+#Remove-QA:hover {
+    background: #fd9090;
+}
+
+#Question-Box {
+    padding: 2%;
+    margin-left: 3.5%;
+}
+
+#QuestionNumber {
+    color: black;
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 1.2%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#Input-Question {
+    margin-left: 1%;
+    width: 94%;
+    padding: 0.5%;
+    border-radius: 3px;
+    height: 20px;
+    border-color: gray;
+    font-family: 'Palanquin Dark', sans-serif;
+}
+
+#Answer-Box {
+    margin-left: 5.5%;
+}
+
+#AnswerNumber {
+    color: black;
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 1.2%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#Input-Answer {
+    margin-left: 1%;
+    width: 92%;
+    padding: 0.5%;
+    border-radius: 3px;
+    height: 20px;
+    border-color: gray;
+    font-family: 'Palanquin Dark', sans-serif;
+}
+
+#Add-QA {
+    margin-top: 3%;
+    margin-left: 49%;
+    border-radius: 3px;
+    border-width: 5px;
+    background: rgb(158, 158, 158);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#Add-QA:hover {
+    background: rgb(204, 204, 204);
+    transition: 0.3s;
+}
+
+.fa-plus {
+    font-size: 30px;
+    color: black;
 }
