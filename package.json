@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
-  "type": "commonjs",
   "scripts": {
     "start": "node --watch backend/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -18,7 +18,7 @@ const CardSlot = new mongoose.Schema ({
 
 const DecklistSchema = new mongoose.Schema({
     DeckID: {
-        type: Int32Array,
+        type: Number,
         required: true
     },
     Deckname: {
@@ -26,11 +26,11 @@ const DecklistSchema = new mongoose.Schema({
         required: true
     },
     Slots: {
-        type: Int32Array,
+        type: Number,
         required: true
     },
     Deck_data: [CardSlot]
     
 })
 
-module.exports.deckModel = mongoose.model('deckModel', DecklistSchema)
+module.exports = mongoose.model('deckModel', DecklistSchema)

@@ -11,12 +11,11 @@ const db = mongoose.connection;
 db.on('error', (error) => {console.error(error)});
 db.once('open', ()=> {console.log("Connect to MONGODB")});
 
-let Decklist = require("./deck.json");
+app.use(express.json());
 
-app.get("/decklist", (req, res)=> {
-    res.status(200).json(Decklist);
-}
-)
+const deckRouter = require("./routes/deckInfo");
+app.use('/deckInfo', deckRouter);
+
 
 app.listen(PORT, ()=> {
     console.log (`server running at https://localhost:${PORT}`);
