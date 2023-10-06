@@ -292,6 +292,22 @@ body {
     transition: 0.3s;
 }
 
+#Edit-Save-Button {
+    padding: 0.3%;
+    width: 5%;
+    background: #D9FFCF;
+    border: #a0f28a solid;
+    border-width: 3px;
+    border-radius: 6px;
+    font-size: 20px;
+    margin-left: 70%;
+}
+
+#Edit-Save-Button:hover {
+    background: #e6ffe0;
+    transition: 0.3s;
+}
+
 .Edit-DeckName {
     margin-bottom: 1.2%;
     margin-left: 10%;

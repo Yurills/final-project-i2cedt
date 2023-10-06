@@ -6,9 +6,11 @@ const PORT = 8080;
 
 const mongoose = require("mongoose");
 mongoose.connect(process.env.MONGO_URL);
+
 const db = mongoose.connection;
 db.on('error', (error) => {console.error(error)});
 db.once('open', ()=> {console.log("Connect to MONGODB")});
+
 let Decklist = require("./deck.json");
 
 app.get("/decklist", (req, res)=> {
