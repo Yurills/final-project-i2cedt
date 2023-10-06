@@ -1,4 +1,7 @@
-//export function drawButton(){
+const fetchDeck = require("./api");
+
+
+
 //generate button with deck name
 let button_MainDisplay = document.getElementsByClassName("deckname-button");
 
@@ -18,13 +21,14 @@ let button_Selection = (event) => {
 for (let i = 0; i < button_MainDisplay.length; i++) {
     button_MainDisplay[i].addEventListener('click', button_Selection);
 }
-//}
 
-//export function switchDisplay(){
+
 // switching to flashcard display
 let switchDisplay_Start = () => {
     document.getElementById("Main-Display").style.display = "none";
     document.getElementById("Flashcard").style.display = "block";
+    let data = fetchDeck(button_Selection_Value);
+    console.log(data);
 
     //generate flashcard loads form database
 }
@@ -57,7 +61,6 @@ Flashcard_Return_Button.addEventListener('click', switchDisplay_Return);
 
 let button_MainDisplay__START = document.getElementById("Main-Display__Start-Button");
 button_MainDisplay__START.addEventListener('click', switchDisplay_Start);
-//}
 
 function Create_Flashcard(){
     //get input values, <How to make it into an array?>

@@ -12,6 +12,17 @@ router.get('/', async (req,res) => {
     }
 })
 
+//get deck
+router.get('/:id', async (req,res) => {
+    try {
+        const deckItem = await deckModel.find({ DeckID: req.params.id });
+        res.json(deckItem);
+    }catch (error){
+        res.status(500).send(error.message);
+    }
+}
+)
+
 //add deck object
 router.post('/', async (req,res) => {
     const deck = new deckModel({
