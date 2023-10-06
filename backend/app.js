@@ -1,10 +1,11 @@
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 
-const express = require("express");
+import express from 'express';
 const app = express();
 const PORT = 8080;
 
-const mongoose = require("mongoose");
+import mongoose from 'mongoose';
 mongoose.connect(process.env.MONGO_URL);
 
 const db = mongoose.connection;
@@ -13,10 +14,10 @@ db.once('open', ()=> {console.log("Connect to MONGODB")});
 
 app.use(express.json());
 
-const deckRouter = require("./routes/deckInfo");
-app.use('/deckInfo', deckRouter);
+import Router from './routes/deckInfo.js';
+app.use('/deckInfo', Router);
 
 
 app.listen(PORT, ()=> {
-    console.log (`server running at https://localhost:${PORT}`);
+    console.log (`backend is live at http://localhost:${PORT}`);
 })

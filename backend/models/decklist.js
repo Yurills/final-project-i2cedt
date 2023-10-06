@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from 'mongoose'
 
 const CardSlot = new mongoose.Schema ({
     Question: {
@@ -33,4 +33,4 @@ const DecklistSchema = new mongoose.Schema({
     
 })
 
-module.exports = mongoose.model('deckModel', DecklistSchema)
+export default mongoose.model('deckModel', DecklistSchema);

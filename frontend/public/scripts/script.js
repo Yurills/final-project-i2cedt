@@ -1,4 +1,4 @@
-const fetchDeck = require("./api");
+import {fetchDeck} from './api.js'
 
 
 
