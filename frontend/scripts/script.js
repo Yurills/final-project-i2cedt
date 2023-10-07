@@ -1,6 +1,4 @@
-const fetchDeck = require("./api");
-
-
+//const fetchDeck = require("./api");
 
 //generate button with deck name
 let button_MainDisplay = document.getElementsByClassName("deckname-button");
@@ -40,11 +38,20 @@ let switchDisplay_Return = () => {
 let switchDisplay_Edit = () => {
     document.getElementById("Main-Display").style.display = "none";
     document.getElementById("Edit").style.display = "Block";
+    document.getElementById("Add-QA").style.display = "Block";
 }
 
 let switchDisplay_Edit_Return = () => {
     document.getElementById("Main-Display").style.display = "block";
     document.getElementById("Edit").style.display = "none";
+    document.getElementById("Add-QA").style.display = "none";
+}
+
+function copyExistingElement() {
+    const existingElement = document.querySelector('#Edit-Wrapper');
+    const newElement = existingElement.cloneNode(true);
+    const container = document.getElementById('Edit');
+    container.appendChild(newElement);
 }
 
 let Edit_Return_Button = document.getElementById("Edit-Return-Button");
@@ -62,7 +69,7 @@ Flashcard_Return_Button.addEventListener('click', switchDisplay_Return);
 let button_MainDisplay__START = document.getElementById("Main-Display__Start-Button");
 button_MainDisplay__START.addEventListener('click', switchDisplay_Start);
 
-function Create_Flashcard(){
+function Create_Flashcard() {
     //get input values, <How to make it into an array?>
     let deckname = document.getElementById("Input-DeckName").value;
     let input_question = document.getElementById("Input-Question").value;
@@ -80,7 +87,7 @@ function Create_Flashcard(){
         Slots: 1, //counting QA-Add
         Deck_data: flashcard
     };
-    
+
     console.log(createflashcard);
     //createflashcard.Deck_data.push(flashcard);
     //saveFlashcard(createflashcard);
