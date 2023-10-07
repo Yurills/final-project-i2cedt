@@ -1,4 +1,3 @@
-//const fetchDeck = require("./api");
 import {fetchDeck, postDeck} from './api.js'
 
 
@@ -50,12 +49,13 @@ let switchDisplay_Edit_Return = () => {
     document.getElementById("Add-QA").style.display = "none";
 }
 
-function copyExistingElement() {
+let QA_Add_Button = document.getElementById("Add-QA");
+QA_Add_Button.addEventListener('click', function() {
     const existingElement = document.querySelector('#Edit-Wrapper');
     const newElement = existingElement.cloneNode(true);
     const container = document.getElementById('Edit');
     container.appendChild(newElement);
-}
+});
 
 let Edit_Return_Button = document.getElementById("Edit-Return-Button");
 Edit_Return_Button.addEventListener('click', switchDisplay_Edit_Return);
