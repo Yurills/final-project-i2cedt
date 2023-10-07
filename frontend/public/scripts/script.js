@@ -1,4 +1,6 @@
 //const fetchDeck = require("./api");
+import {fetchDeck, postDeck} from './api.js'
+
 
 //generate button with deck name
 let button_MainDisplay = document.getElementsByClassName("deckname-button");
@@ -25,6 +27,7 @@ for (let i = 0; i < button_MainDisplay.length; i++) {
 let switchDisplay_Start = () => {
     document.getElementById("Main-Display").style.display = "none";
     document.getElementById("Flashcard").style.display = "block";
+    
     let data = fetchDeck(button_Selection_Value);
     console.log(data);
 

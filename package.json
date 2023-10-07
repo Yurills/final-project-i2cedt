@@ -3,18 +3,19 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
+  "type": "module",
   "scripts": {
     "start": "node --watch backend/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "frontend": "node --watch frontend/app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "mongoose": "^7.5.4",
-    "mongosh": "^2.0.0",
     "node": "^20.6.0"
   }
 }
