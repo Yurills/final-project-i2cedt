@@ -1,11 +1,12 @@
 import express from 'express';
+import cors from 'cors';
+
 const app = express();
-const PORT = 3221;
+const PORT = 3000;
 
-app.use(express.static("public"));
+app.use(express.static("frontend/public"));
+app.use(cors());
 
-
-
-app.listen(PORT, "0.0.0.0", ()=> {
+app.listen(PORT, ()=> {
     console.log(`frontend is live at http://localhost:${PORT}`);
 } )

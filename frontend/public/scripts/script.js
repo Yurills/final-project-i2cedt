@@ -1,4 +1,4 @@
-import {fetchDeck} from './api.js'
+import {fetchDeck, postDeck} from './api.js'
 
 
 
@@ -27,6 +27,7 @@ for (let i = 0; i < button_MainDisplay.length; i++) {
 let switchDisplay_Start = () => {
     document.getElementById("Main-Display").style.display = "none";
     document.getElementById("Flashcard").style.display = "block";
+    
     let data = fetchDeck(button_Selection_Value);
     console.log(data);
 

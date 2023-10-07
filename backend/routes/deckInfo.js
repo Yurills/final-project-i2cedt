@@ -1,6 +1,6 @@
 import express from 'express'
 const router = express.Router();
-import * as deckModel from '../models/decklist.js'
+import deckModel from '../models/decklist.js'
 
 //get all
 router.get('/', async (req,res) => {

@@ -17,6 +17,7 @@ app.use(express.json());
 import Router from './routes/deckInfo.js';
 app.use('/deckInfo', Router);
 
+app.use(express.static('frontend/public'));
 
 app.listen(PORT, ()=> {
     console.log (`backend is live at http://localhost:${PORT}`);
