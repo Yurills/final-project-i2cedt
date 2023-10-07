@@ -332,6 +332,7 @@ body {
     width: 80%;
     height: 285px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-bottom: 1%;
 }
 
 #Remove-QA {
@@ -394,6 +395,7 @@ body {
 }
 
 #Add-QA {
+    display: none;
     margin-top: 3%;
     margin-left: 49%;
     border-radius: 3px;
