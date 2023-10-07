@@ -1,4 +1,4 @@
-import {fetchDeck, postDeck} from './api.js'
+import { fetchDeck, postDeck } from './api.js'
 
 
 //generate button with deck name
@@ -26,7 +26,7 @@ for (let i = 0; i < button_MainDisplay.length; i++) {
 let switchDisplay_Start = () => {
     document.getElementById("Main-Display").style.display = "none";
     document.getElementById("Flashcard").style.display = "block";
-    
+
     let data = fetchDeck(button_Selection_Value);
     console.log(data);
 
@@ -49,13 +49,29 @@ let switchDisplay_Edit_Return = () => {
     document.getElementById("Add-QA").style.display = "none";
 }
 
+
+
+let counter = 1;
+
 let QA_Add_Button = document.getElementById("Add-QA");
-QA_Add_Button.addEventListener('click', function() {
+QA_Add_Button.addEventListener('click', function () {
     const existingElement = document.querySelector('#Edit-Wrapper');
     const newElement = existingElement.cloneNode(true);
+    const NewID = 'Edit-Wrapper ' + counter;
+
+    newElement.id = NewID;
+    newElement.classList.add('Edit-Wrapper');
     const container = document.getElementById('Edit');
     container.appendChild(newElement);
+    counter++;
 });
+
+function removeElement(elementId) {
+    const elementToRemove = document.getElementById(elementId);
+    elementToRemove.remove();
+}
+
+
 
 let Edit_Return_Button = document.getElementById("Edit-Return-Button");
 Edit_Return_Button.addEventListener('click', switchDisplay_Edit_Return);
