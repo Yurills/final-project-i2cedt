@@ -326,7 +326,8 @@ body {
     font-family: 'Palanquin Dark', sans-serif;
 }
 
-#Edit-Wrapper {
+#Edit-Wrapper,
+.Edit-Wrapper {
     margin-left: 10%;
     background: #D3DBFF;
     width: 80%;
