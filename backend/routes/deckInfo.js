@@ -29,7 +29,8 @@ router.post('/', async (req,res) => {
         DeckID: req.body.DeckID,
         Deckname: req.body.Deckname,
         Slots: req.body.Slots, 
-        Deck_data: req.body.Deck_data
+        Deck_data: req.body.Deck_data,
+        Username : req.body.Username
     })
     try {
         const newDeck = await deck.save();

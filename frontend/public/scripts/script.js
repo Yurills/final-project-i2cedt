@@ -133,8 +133,8 @@ function Create_Flashcard() {
         Slots: input_question_ClassSet.size, //counting QA-Add
         Deck_data: array_create_Deckdata
     };
-
-    console.log(createflashcard);
+    let temp = JSON.stringify(createflashcard)
+    console.log(JSON.parse(temp));
     //createflashcard.Deck_data.push(flashcard);
     //saveFlashcard(createflashcard);
 }
