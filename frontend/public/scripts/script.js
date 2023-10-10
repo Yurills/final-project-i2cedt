@@ -1,5 +1,47 @@
 
-import { fetchDeck, postDeck } from './api.js'
+import { fetchDeck, postDeck, getUserInfo, postUserInfo} from './api.js'
+
+//authentication
+const login_display = document.getElementById("show-success");
+function registerUser(){
+    login_display.innerHTML = "";
+    login_display.style.color = "black";
+    
+    let username_field = document.getElementById("Input-Username").value;
+    let password_field = document.getElementById("Input-Password").value;
+
+    let check_username = getUserInfo(username_field);
+    console.log(check_username);
+    if (check_username != null){
+        login_display.innerHTML = "username is taken!";
+        login_display.style.color = "red";
+    }
+    else {
+        postUserInfo(username_field, password_field);
+        login_display.innerHTML = "account created!";
+        login_display.style.color = "green";
+        console.log("create")
+        
+    }
+    console.log(getUserInfo(username_field));
+    
+}
+function togglePasswordVisibility() {
+    let inputPassword = document.getElementById("Input-Password");
+    if (inputPassword.type === "password") inputPassword.type = "text";
+    else inputPassword.type = "password";
+    
+}
+let userID = "Test";
+
+document.getElementById("Register-Button").addEventListener('click', registerUser);
+document.getElementById("Password-toggle-button").addEventListener('click', togglePasswordVisibility)
+
+
+
+
+
+
 
 //generate button with deck name
 let button_MainDisplay = document.getElementsByClassName("deckname-button");
@@ -40,6 +82,8 @@ let switchDisplay_Edit = () => {
     document.getElementById("Edit").style.display = "Block";
     document.getElementById("Add-QA").style.display = "Block";
     document.getElementById("Login").style.display = "none";
+
+    createEditWrapper(button_Selection_Value);
 }
 
 let switchDisplay_Edit_Return = () => {
@@ -49,9 +93,6 @@ let switchDisplay_Edit_Return = () => {
     document.getElementById("Login").style.display = "block";
 }
 
-
-
-let counter = 1;
 let Remove_Button_ClassSet = document.getElementsByClassName("Remove-QA");
 Remove_Button_ClassSet[0].addEventListener('click', removeElement);
 let QA_Add_Button = document.getElementById("Add-QA");
@@ -72,6 +113,30 @@ QA_Add_Button.addEventListener('click', function () {
         Remove_Button_ClassSet[i].addEventListener('click', removeElement)
     }
 });
+
+async function createEditWrapper(deckID) {
+    let allDeck = await fetchDeck(userID);
+    let myDecklist = allDeck.find(x => x.DeckID == deckID);
+
+    let newElement = defaultnewElement.cloneNode(true);
+    console.log(newElement);
+    const container = document.getElementById('Edit');
+    for (let i=0;i<myDecklist.Slots;i++){
+        newElement.classList.add('Edit-Wrapper');
+        let QuestionNode = newElement.querySelector(".Question-Box .Input-Question");
+        let AnswerNode = newElement.querySelector(".Answer-Box .Input-Answer")
+
+        
+        QuestionNode.value = myDecklist.Deck_data[i].Question;
+        AnswerNode.value = myDecklist.Deck_data[i].Question;
+        container.appendChild(newElement);
+        
+    }
+
+    for (let i=0;i<Remove_Button_ClassSet.length;i++){
+        Remove_Button_ClassSet[i].addEventListener('click', removeElement)
+    }
+}
 
 
 function removeElement(event) {
@@ -131,7 +196,8 @@ function Create_Flashcard() {
         DeckID: button_Selection_Value,
         Deckname: document.getElementById("Input-Deck"),
         Slots: input_question_ClassSet.size, //counting QA-Add
-        Deck_data: array_create_Deckdata
+        Deck_data: array_create_Deckdata,
+        Username: userID
     };
     let temp = JSON.stringify(createflashcard)
     console.log(JSON.parse(temp));
@@ -156,10 +222,8 @@ function FlipButtonShowDisplay(answerID) {
 
 async function StartGame(deckID) {
     console.log("start!");
-    let myDecklist = await fetchDeck(deckID);
-    console.log(myDecklist);
-
-    
+    let AllmyDecklist = await fetchDeck(userID);
+    let myDecklist = AllmyDecklist.find(x => x.DeckID == deckID);
 
     let currentIteration = 0;
     FlipButtonShowDisplay(myDecklist.Deck_data[currentIteration].Answer)

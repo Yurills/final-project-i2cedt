@@ -15,7 +15,7 @@ router.get('/', async (req,res) => {
 //get deck
 router.get('/:id', async (req,res) => {
     try {
-        const deckItem = await deckModel.findOne({ DeckID: req.params.id });
+        const deckItem = await deckModel.find({ Username: req.params.id, });
         res.json(deckItem);
     }catch (error){
         res.status(500).send(error.message);

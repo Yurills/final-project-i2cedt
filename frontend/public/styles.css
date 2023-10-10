@@ -30,17 +30,26 @@ body {
     height: 89.5%;
     z-index: 2;
 }
+#login-wrapper{
+    margin-top: 1.5%;
+    margin-left: 85%;
+    position: absolute;
+}
+#show-username {
+    font-size: 20px;
+    font-family: Palanquin Dark;
+    color:white;
+    margin: 5px
+}
 
 #Login{
-    margin-top: 1.5%;
-    margin-left: 92%;
+    display:inline; 
     font-size: 20px;
     font-family: Palanquin Dark;
     color: rgb(0, 0, 0);
     border-radius: 10px;
     background: #ffffff;
     border-width: 3px;
-    position: absolute;
     border-color: black;
 }
 
@@ -97,7 +106,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bold;
     margin-left: 10%;
-    margin-bottom: 1%;
+    margin-bottom: 3%;
     padding-top: 10%;
 }
 
@@ -113,28 +122,38 @@ body {
     font-size: 25px;
     font-weight: bold;
     margin-left: 10%;
-    margin-bottom: 1%;
+    margin-bottom: 3%;
 }
 
 #Input-Password{
     font-size: 15px;
     margin-left: 10%;
-    width: 75%;
+    width: 65%;
     margin-bottom: 7%;
+    margin-right: 0px;
+
 }
 
 #Login-Reg-ButtonHolder{
-    display: inline;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
 }
 
 #Login-Button{
-    margin-left: 26%;
-    margin-right: 20%;
+    margin-right: 10%;
     background-color: white;
     color: black;
     font-size: 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     border-radius: 5px;
+}
+#Password-toggle-button {
+    background-color: black;
+    color: white;
+    border: none;
+    margin: 0px;
+    display: inline;
 }
 
 
@@ -156,6 +175,10 @@ body {
     color: white;
     background: #292929;
     transition: 0.3s;
+}
+#show-success {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
 }
 
 .Main-Box {

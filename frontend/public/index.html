@@ -10,7 +10,10 @@
 </head>
 
 <body>
-    <button id = "Login">Login</button>
+    <div id="login-wrapper">
+        <span id="show-username">login as: Guest</span>
+        <button id = "Login">Login</button>
+    </div>
     <section id="header">
         <div id="head-text"><i class="fa-solid fa-brain"></i> Mindflayer </div>
         <div id = "BG-Blur"></div>
@@ -24,12 +27,18 @@
             </div>
             <div id="Password-Box">
                 <div id="Password">Password : </div>
-                <input id="Input-Password" placeholder="Please Input Your Password">
+                <input id="Input-Password" placeholder="Please Input Your Password" type="Password">
+                <button id="Password-toggle-button">👁</button>
             </div>
             <div id = "Login-Reg-ButtonHolder">
                 <button id = "Login-Button">Login</button>
                 <button id = "Register-Button">Register</button>
+               
             </div>
+            <div style="display:flex; justify-content: center;">
+                <span id="show-success">placeholder</span>
+            </div>
+           
         </div>
     </div>
 
