@@ -1,6 +1,5 @@
 import { fetchDeck, postDeck } from './api.js'
 
-
 //generate button with deck name
 let button_MainDisplay = document.getElementsByClassName("deckname-button");
 
@@ -27,9 +26,7 @@ let switchDisplay_Start = () => {
     document.getElementById("Main-Display").style.display = "none";
     document.getElementById("Flashcard").style.display = "block";
 
-    let data = fetchDeck(button_Selection_Value);
-    console.log(data);
-
+    StartGame(button_Selection_Value);
     //generate flashcard loads form database
 }
 let switchDisplay_Return = () => {
@@ -58,6 +55,13 @@ QA_Add_Button.addEventListener('click', function () {
     const existingElement = document.querySelector('#Edit-Wrapper');
     const newElement = existingElement.cloneNode(true);
     const NewID = 'Edit-Wrapper ' + counter;
+    const newRemoveID = 'Remove-QA' + counter;
+    const newInputQuestion = 'Input-Question' + counter;
+    const newInputAnswer = 'Input-Answer' + counter;
+    const removeid = document.querySelector('.Remove-QA');
+    const questionid = document.querySelector('.Input-Question');
+    const answerid = document.querySelector('.Input-Answer');
+    removeid.setAttribute("id",newRemoveID);
 
     newElement.id = NewID;
     newElement.classList.add('Edit-Wrapper');
@@ -111,3 +115,39 @@ function Create_Flashcard() {
     //createflashcard.Deck_data.push(flashcard);
     //saveFlashcard(createflashcard);
 }
+
+
+
+
+
+
+
+
+
+//starts the game
+function FlipButtonShowDisplay(answerID) {
+    let currentDisplay = document.getElementById("Question");
+    console.log(answerID);  
+    currentDisplay.innerHTML = answerID;
+    
+}
+
+async function StartGame(deckID) {
+    console.log("start!");
+    let myDecklist = await fetchDeck(deckID);
+    console.log(myDecklist);
+
+    let FlipButton = document.getElementById("Correct");
+    let NextButton = document.getElementById("Wrong");
+
+    let currentIteration = 0;
+    console.log("current iteration " + currentIteration);
+    let currentQuestion = document.getElementById("Question");
+    currentQuestion.innerHTML = myDecklist.Deck_data[currentIteration].Question;
+
+    FlipButton.addEventListener('click',  FlipButtonShowDisplay(myDecklist.Deck_data[currentIteration].Answer));
+    NextButton.addEventListener('click', FlipButtonShowDisplay(myDecklist.Deck_data[++currentIteration].Question));
+
+
+}
+

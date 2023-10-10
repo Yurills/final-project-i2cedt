@@ -336,7 +336,7 @@ body {
     margin-bottom: 1%;
 }
 
-#Remove-QA {
+.Remove-QA {
     float: right;
     background: #FF7878;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -350,12 +350,12 @@ body {
     background: #fd9090;
 }
 
-#Question-Box {
+.Question-Box {
     padding: 2%;
     margin-left: 3.5%;
 }
 
-#QuestionNumber {
+.QuestionNumber {
     color: black;
     font-weight: bold;
     font-size: 30px;
@@ -363,7 +363,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#Input-Question {
+.Input-Question {
     margin-left: 1%;
     width: 94%;
     padding: 0.5%;
@@ -373,11 +373,11 @@ body {
     font-family: 'Palanquin Dark', sans-serif;
 }
 
-#Answer-Box {
+.Answer-Box {
     margin-left: 5.5%;
 }
 
-#AnswerNumber {
+.AnswerNumber {
     color: black;
     font-weight: bold;
     font-size: 30px;
@@ -385,7 +385,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#Input-Answer {
+.Input-Answer {
     margin-left: 1%;
     width: 92%;
     padding: 0.5%;

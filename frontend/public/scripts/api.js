@@ -2,7 +2,7 @@ const url = "http://localhost:8080"
 
 //get all the deck data using DeckID as parameter
 export async function fetchDeck(deckID) {
-    const res = await fetch(`${url}/deckInfo/${deckID}`, {method: 'GET'});
+    const res = await fetch(`${url}/deckInfo/${deckID}`);
     const data = await res.json();
     return data;
 }
