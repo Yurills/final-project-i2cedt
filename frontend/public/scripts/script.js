@@ -25,25 +25,28 @@ for (let i = 0; i < button_MainDisplay.length; i++) {
 let switchDisplay_Start = () => {
     document.getElementById("Main-Display").style.display = "none";
     document.getElementById("Flashcard").style.display = "block";
-
+    document.getElementById("Login").style.display = "none";
     StartGame(button_Selection_Value);
     //generate flashcard loads form database
 }
 let switchDisplay_Return = () => {
     document.getElementById("Main-Display").style.display = "block";
     document.getElementById("Flashcard").style.display = "none";
+    document.getElementById("Login").style.display = "block";
 }
 
 let switchDisplay_Edit = () => {
     document.getElementById("Main-Display").style.display = "none";
     document.getElementById("Edit").style.display = "Block";
     document.getElementById("Add-QA").style.display = "Block";
+    document.getElementById("Login").style.display = "none";
 }
 
 let switchDisplay_Edit_Return = () => {
     document.getElementById("Main-Display").style.display = "block";
     document.getElementById("Edit").style.display = "none";
     document.getElementById("Add-QA").style.display = "none";
+    document.getElementById("Login").style.display = "block";
 }
 
 
@@ -77,6 +80,22 @@ function removeElement(event) {
     toRemove.remove();
 }
 
+let Switch_Login = () => {
+    document.getElementById("GetData").style.display = "block";
+    document.getElementById("BG-Blur").style.display = "flex";
+}
+
+let CloseLogin = () => {
+    
+    document.getElementById("GetData").style.display = "none";
+    document.getElementById("BG-Blur").style.display = "none";
+}
+
+let Close_Login_Button = document.getElementById("CloseLoginTab");
+Close_Login_Button.addEventListener('click',CloseLogin);
+
+let Login_Button = document.getElementById("Login");
+Login_Button.addEventListener('click',Switch_Login); 
 
 let Edit_Return_Button = document.getElementById("Edit-Return-Button");
 Edit_Return_Button.addEventListener('click', switchDisplay_Edit_Return);

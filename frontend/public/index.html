@@ -10,9 +10,28 @@
 </head>
 
 <body>
+    <button id = "Login">Login</button>
     <section id="header">
-        <p id="head-text"><i class="fa-solid fa-brain"></i> Mindflayer</p>
+        <div id="head-text"><i class="fa-solid fa-brain"></i> Mindflayer </div>
+        <div id = "BG-Blur"></div>
     </section>
+    <div id = "GetData">
+        <div id = GetData-Warpper>
+            <button id = "CloseLoginTab" class="fa-solid fa-xmark "></button>
+            <div id="Username-Box">
+                <div id="Username">Username : </div>
+                <input id="Input-Username" placeholder="Please Input Your Username">
+            </div>
+            <div id="Password-Box">
+                <div id="Password">Password : </div>
+                <input id="Input-Password" placeholder="Please Input Your Password">
+            </div>
+            <div id = "Login-Reg-ButtonHolder">
+                <button id = "Login-Button">Login</button>
+                <button id = "Register-Button">Register</button>
+            </div>
+        </div>
+    </div>
 
     <section id="Main-Display">
         <div id="Holder">
@@ -20,7 +39,6 @@
                 <span id="Deck-Select">
                     Select Your Deck
                 </span>
-
                 <div id="wrapper--Button-Holder">
                     <div id="Button-Holder">
                         <button class="deckname-button" id="1" value="1"> Deck 1 </button>
@@ -49,8 +67,8 @@
                 </div>
                 <div id="Question"></div>
                 <div id="Answer-Button">
-                    <button id="Correct"><i class="fa-solid fa-check" style="color: green;"></i> Flip!</button>
-                    <button id="Wrong"><i class="fa-solid fa-xmark " style="color: red"></i> Next!</button>
+                    <button id="Correct"> Flip!</button>
+                    <button id="Wrong"> Next!</button>
                 </div>
             </div>
         </div>
