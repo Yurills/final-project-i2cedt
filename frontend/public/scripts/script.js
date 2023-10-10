@@ -12,7 +12,6 @@ let button_Selection = (event) => {
         button_MainDisplay[i].style.borderColor = "#788be0"
     }
     button_Selection_Value = event.target.value;
-    console.log(button_Selection_Value);
     document.getElementById(button_Selection_Value).style.backgroundColor = "#ffd683";
     document.getElementById(button_Selection_Value).style.borderColor = "#ae8454";
 }
@@ -137,16 +136,20 @@ async function StartGame(deckID) {
     let myDecklist = await fetchDeck(deckID);
     console.log(myDecklist);
 
-    let FlipButton = document.getElementById("Correct");
-    let NextButton = document.getElementById("Wrong");
+    
 
     let currentIteration = 0;
+    FlipButtonShowDisplay(myDecklist.Deck_data[currentIteration].Answer)
+
     console.log("current iteration " + currentIteration);
     let currentQuestion = document.getElementById("Question");
     currentQuestion.innerHTML = myDecklist.Deck_data[currentIteration].Question;
 
-    FlipButton.addEventListener('click',  FlipButtonShowDisplay(myDecklist.Deck_data[currentIteration].Answer));
-    NextButton.addEventListener('click', FlipButtonShowDisplay(myDecklist.Deck_data[++currentIteration].Question));
+    let FlipButton = document.getElementById("Correct");
+    let NextButton = document.getElementById("Wrong");
+    
+    FlipButton.addEventListener('click',  ()=> {FlipButtonShowDisplay(myDecklist.Deck_data[currentIteration].Answer)});
+    NextButton.addEventListener('click', ()=> {FlipButtonShowDisplay(myDecklist.Deck_data[++currentIteration].Question)});
 
 
 }
