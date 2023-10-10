@@ -24,7 +24,11 @@ const DecklistSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    Deck_data: [CardSlot]
+    Deck_data: [CardSlot],
+    Username: {
+        type: String,
+        require: true
+    }
     
 })
 

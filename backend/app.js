@@ -17,10 +17,12 @@ app.use(express.json());
 app.use(cors());
 
 import Router from './routes/deckInfo.js';
+import Router2 from './routes/userInfo.js';
 app.use('/deckInfo', Router);
+app.use('/userInfo',Router2)
 
 app.use(express.static('frontend/public'));
 
 app.listen(PORT, ()=> {
-    console.log (`backend is live at http://localhost:${PORT}`);
+    console.log (`server live at http://localhost:${PORT}`);
 })
