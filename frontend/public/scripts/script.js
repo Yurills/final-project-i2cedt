@@ -1,3 +1,4 @@
+
 import { fetchDeck, postDeck } from './api.js'
 
 //generate button with deck name
@@ -48,32 +49,33 @@ let switchDisplay_Edit_Return = () => {
 
 
 let counter = 1;
-
+let Remove_Button_ClassSet = document.getElementsByClassName("Remove-QA");
+Remove_Button_ClassSet[0].addEventListener('click', removeElement);
 let QA_Add_Button = document.getElementById("Add-QA");
-QA_Add_Button.addEventListener('click', function () {
-    const existingElement = document.querySelector('#Edit-Wrapper');
-    const newElement = existingElement.cloneNode(true);
-    const NewID = 'Edit-Wrapper ' + counter;
-    const newRemoveID = 'Remove-QA' + counter;
-    const newInputQuestion = 'Input-Question' + counter;
-    const newInputAnswer = 'Input-Answer' + counter;
-    const removeid = document.querySelector('.Remove-QA');
-    const questionid = document.querySelector('.Input-Question');
-    const answerid = document.querySelector('.Input-Answer');
-    removeid.setAttribute("id",newRemoveID);
 
-    newElement.id = NewID;
+const existingElement = document.getElementById("0");
+const defaultnewElement = existingElement.cloneNode(true);
+
+QA_Add_Button.addEventListener('click', function () {
+    let newElement = defaultnewElement.cloneNode(true);
+    
     newElement.classList.add('Edit-Wrapper');
     const container = document.getElementById('Edit');
+
     container.appendChild(newElement);
-    counter++;
+
+    Remove_Button_ClassSet = document.getElementsByClassName("Remove-QA")
+    for (let i=0;i<Remove_Button_ClassSet.length;i++){
+        Remove_Button_ClassSet[i].addEventListener('click', removeElement)
+    }
 });
 
-function removeElement(elementId) {
-    const elementToRemove = document.getElementById(elementId);
-    elementToRemove.remove();
-}
 
+function removeElement(event) {
+    let toRemove = event.target.parentElement ;
+    console.log(toRemove);
+    toRemove.remove();
+}
 
 
 let Edit_Return_Button = document.getElementById("Edit-Return-Button");
@@ -92,29 +94,31 @@ let button_MainDisplay__START = document.getElementById("Main-Display__Start-But
 button_MainDisplay__START.addEventListener('click', switchDisplay_Start);
 
 function Create_Flashcard() {
-    //get input values, <How to make it into an array?>
-    let deckname = document.getElementById("Input-DeckName").value;
-    let input_question = document.getElementById("Input-Question").value;
-    let input_answer = document.getElementById("Input-Answer").value;
+    let input_question_ClassSet = document.getElementsByClassName("Input-Question");
+    let input_answer_Classset = document.getElementsByClassName("Input-Answer");
 
-    let flashcard = {
-        Question: input_question,
-        Answer: input_answer,
-        pass: false
-    };
-    //create flashcard with input values
+    let array_create_Deckdata = [];
+    let create_DeckData;
+    for (let i=0;i<input_question_ClassSet.length;i++) {
+        create_DeckData = {
+            Question: input_question_ClassSet[i].value,
+            Answer: input_answer_Classset[i].value,
+        }
+        array_create_Deckdata.push(create_DeckData);
+    }
+    
+    ;
     let createflashcard = {
         DeckID: button_Selection_Value,
-        Deckname: deckname,
-        Slots: 1, //counting QA-Add
-        Deck_data: flashcard
+        Deckname: document.getElementById("Input-Deck"),
+        Slots: input_question_ClassSet.size, //counting QA-Add
+        Deck_data: array_create_Deckdata
     };
 
     console.log(createflashcard);
     //createflashcard.Deck_data.push(flashcard);
     //saveFlashcard(createflashcard);
 }
-
 
 
 

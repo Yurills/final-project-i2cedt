@@ -8,11 +8,6 @@ const CardSlot = new mongoose.Schema ({
     Answer: {
         type: String,
         required: true
-    },
-    pass: {
-        type: Boolean,
-        required: true,
-        default: false
     }
 })
 
