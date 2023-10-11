@@ -113,6 +113,7 @@ let switchDisplay_Return = () => {
     document.getElementById("Main-Display").style.display = "block";
     document.getElementById("Flashcard").style.display = "none";
     document.getElementById("Login").style.display = "inline";
+    document.getElementById("Correct").style.marginLeft = "10%";
 }
 
 let switchDisplay_Edit = () => {
@@ -130,6 +131,37 @@ let switchDisplay_Edit_Return = () => {
     document.getElementById("Add-QA").style.display = "none";
     document.getElementById("Login").style.display = "inline";
 }
+
+let ShowAnswer = () =>{
+    document.getElementById("AnswerShow").style.display = "block";
+    document.getElementById("Question").style.display = "none";
+}
+
+let Next_Question = () =>{
+    document.getElementById("Question").style.display = "Block";
+    document.getElementById("AnswerShow").style.display = "None";
+}
+
+let CloseAnsTab = () =>{
+    document.getElementById("Question").style.display = "Block";
+    document.getElementById("AnswerShow").style.display = "None";
+}
+
+let SuccessfulAlert = ()=>{
+    alert("Deck Saved!!");
+}
+
+let EditSuccessful = document.getElementById("Edit-Save-Button")
+EditSuccessful.addEventListener('click',SuccessfulAlert);
+
+let CloseAnswerTab = document.getElementById("CloseAnswer");
+CloseAnswerTab.addEventListener('click',CloseAnsTab);
+
+let GoNext = document.getElementById("Wrong");
+GoNext.addEventListener('click',Next_Question);
+
+let Flip_Answer = document.getElementById("Correct");
+Flip_Answer.addEventListener('click',ShowAnswer);
 
 let Remove_Button_ClassSet = document.getElementsByClassName("Remove-QA");
 Remove_Button_ClassSet[0].addEventListener('click', removeElement);
@@ -153,9 +185,16 @@ QA_Add_Button.addEventListener('click', function () {
 });
 
 let newElement = defaultnewElement.cloneNode(true);
+
 async function createEditWrapper(deckID) {
     let myDecklist = await fetchDeck(userID, deckID);
     console.log(myDecklist);
+    newElement = defaultnewElement.cloneNode(true);
+    let elements = document.getElementsByClassName('Edit-Wrapper');
+
+    while (elements.length > 0){
+        elements[0].parentNode.removeChild(elements[0]);
+    }
 
     document.getElementById("Input-DeckName").value = myDecklist.Deckname;
     const container = document.getElementById('Edit');
@@ -164,14 +203,14 @@ async function createEditWrapper(deckID) {
         let QuestionNode = newElement.querySelector(".Question-Box .Input-Question");
         let AnswerNode = newElement.querySelector(".Answer-Box .Input-Answer")
 
-        
+
         QuestionNode.value = myDecklist.Deck_data[i].Question;
         AnswerNode.value = myDecklist.Deck_data[i].Answer;
         container.appendChild(newElement);
 
         newElement = defaultnewElement.cloneNode(true);
 
-        
+
     }
 
     for (let i=0;i<Remove_Button_ClassSet.length;i++){
@@ -312,6 +351,7 @@ async function StartGame(deckID) {
         }
         if(currentIteration == myDecklist.Slots-1 ){
             document.getElementById("Wrong").style.display = "none";
+            document.getElementById("Correct").style.marginLeft = "33%";
         }
         FlipButtonShowDisplay(myDecklist.Deck_data[currentIteration].Question)
         }
