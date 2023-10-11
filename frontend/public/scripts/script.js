@@ -132,9 +132,19 @@ let switchDisplay_Edit_Return = () => {
     document.getElementById("Login").style.display = "inline";
 }
 
+let showcount = 0;
+
 let ShowAnswer = () =>{
-    document.getElementById("AnswerShow").style.display = "block";
-    document.getElementById("Question").style.display = "none";
+    if(showcount == 0){
+        document.getElementById("AnswerShow").style.display = "block";
+        document.getElementById("Question").style.display = "none";
+        showcount=1;
+    }
+    else if(showcount == 1){
+        document.getElementById("AnswerShow").style.display = "none";
+        document.getElementById("Question").style.display = "Block";
+        showcount=0;
+    }
 }
 
 let Next_Question = () =>{
@@ -142,10 +152,10 @@ let Next_Question = () =>{
     document.getElementById("AnswerShow").style.display = "None";
 }
 
-let CloseAnsTab = () =>{
+/*let CloseAnsTab = () =>{
     document.getElementById("Question").style.display = "Block";
     document.getElementById("AnswerShow").style.display = "None";
-}
+}*/
 
 let SuccessfulAlert = ()=>{
     alert("Deck Saved!!");
@@ -154,8 +164,8 @@ let SuccessfulAlert = ()=>{
 let EditSuccessful = document.getElementById("Edit-Save-Button")
 EditSuccessful.addEventListener('click',SuccessfulAlert);
 
-let CloseAnswerTab = document.getElementById("CloseAnswer");
-CloseAnswerTab.addEventListener('click',CloseAnsTab);
+/*let CloseAnswerTab = document.getElementById("CloseAnswer");
+CloseAnswerTab.addEventListener('click',CloseAnsTab);*/
 
 let GoNext = document.getElementById("Wrong");
 GoNext.addEventListener('click',Next_Question);
@@ -304,16 +314,13 @@ async function Post_Flashcard() {
 
 
 
-
-
-
-
+let currentIteration;
+let ShowAnswer_Display = document.getElementById("AnswerShow-Text");
 
 //starts the game
 function FlipButtonShowDisplay(answerID) {
     let currentDisplay = document.getElementById("Question");
     currentDisplay.innerHTML = answerID;
-    
 }
 
 async function StartGame(deckID) {
@@ -322,7 +329,7 @@ async function StartGame(deckID) {
     let myDecklist = await fetchDeck(userID,deckID);
     console.log(myDecklist);
 
-    let currentIteration = 0;
+    currentIteration = 0;
     FlipButtonShowDisplay(myDecklist.Deck_data[currentIteration].Answer)
 
     
@@ -331,27 +338,33 @@ async function StartGame(deckID) {
 
     let FlipButton = document.getElementById("Correct");
     let NextButton = document.getElementById("Wrong");
-    let showQuestion = true;
+    //let showQuestion = true;
+    let ShowAnswer_Display = document.getElementById("AnswerShow-Text");
     FlipButton.addEventListener('click',  ()=> 
         {   
             console.log("current iteration " + currentIteration);
-            if(showQuestion == true){
+            ShowAnswer_Display.innerHTML = myDecklist.Deck_data[currentIteration].Answer;
+            /*if(showQuestion == true){
             FlipButtonShowDisplay(myDecklist.Deck_data[currentIteration].Answer);
             showQuestion = false;
+            document.getElementById("Question") = "none";
             }
             else {
                 FlipButtonShowDisplay(myDecklist.Deck_data[currentIteration].Question);
                 showQuestion = true;
-            }
+            }*/
         });
     NextButton.addEventListener('click', ()=> {
         console.log("current iteration " + currentIteration);
         if(currentIteration < myDecklist.Slots-1){
             ++currentIteration;
+            if(currentIteration == myDecklist.Slots-1 ){
+                document.getElementById("Wrong").style.display = "none";
+                document.getElementById("Correct").style.marginLeft = "33%";
+            }
         }
-        if(currentIteration == myDecklist.Slots-1 ){
-            document.getElementById("Wrong").style.display = "none";
-            document.getElementById("Correct").style.marginLeft = "33%";
+        else{
+            currentIteration = 0;
         }
         FlipButtonShowDisplay(myDecklist.Deck_data[currentIteration].Question)
         }
