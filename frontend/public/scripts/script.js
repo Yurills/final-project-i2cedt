@@ -1,7 +1,7 @@
 
 import { fetchDeck, editDeck, postDeck, getUserInfo, postUserInfo} from './api.js'
 
-let userID="Test";
+let userID="";
 //authentication
 const login_display = document.getElementById("show-success");
 async function registerUser(){
@@ -50,9 +50,10 @@ async function loginUser() {
         if (password_field == check_authenticate.Password) {
             console.log("log in!")
             login_display.innerHTML = "login successfully";
-            login_display.style.color = "greeen";
+            login_display.style.color = "green";
             document.getElementById("show-username").innerHTML = `login as: ${username_field}`
             userID = username_field;
+            document.getElementById("Login").innerHTML = "Logout"
 
         }
         else {
@@ -60,6 +61,7 @@ async function loginUser() {
             login_display.style.color = "red";
         }
     }
+    
 }
 function togglePasswordVisibility() {
     let inputPassword = document.getElementById("Input-Password");
@@ -110,7 +112,7 @@ let switchDisplay_Start = () => {
 let switchDisplay_Return = () => {
     document.getElementById("Main-Display").style.display = "block";
     document.getElementById("Flashcard").style.display = "none";
-    document.getElementById("Login").style.display = "block";
+    document.getElementById("Login").style.display = "inline";
 }
 
 let switchDisplay_Edit = () => {
@@ -126,7 +128,7 @@ let switchDisplay_Edit_Return = () => {
     document.getElementById("Main-Display").style.display = "block";
     document.getElementById("Edit").style.display = "none";
     document.getElementById("Add-QA").style.display = "none";
-    document.getElementById("Login").style.display = "block";
+    document.getElementById("Login").style.display = "inline";
 }
 
 let Remove_Button_ClassSet = document.getElementsByClassName("Remove-QA");
@@ -150,13 +152,12 @@ QA_Add_Button.addEventListener('click', function () {
     }
 });
 
+let newElement = defaultnewElement.cloneNode(true);
 async function createEditWrapper(deckID) {
     let myDecklist = await fetchDeck(userID, deckID);
-    console.log(userID+" "+deckID);
     console.log(myDecklist);
 
-    let newElement = defaultnewElement.cloneNode(true);
-    console.log(newElement);
+    document.getElementById("Input-DeckName").value = myDecklist.Deckname;
     const container = document.getElementById('Edit');
     for (let i=0;i<myDecklist.Slots;i++){
         newElement.classList.add('Edit-Wrapper');
@@ -165,8 +166,11 @@ async function createEditWrapper(deckID) {
 
         
         QuestionNode.value = myDecklist.Deck_data[i].Question;
-        AnswerNode.value = myDecklist.Deck_data[i].Question;
+        AnswerNode.value = myDecklist.Deck_data[i].Answer;
         container.appendChild(newElement);
+
+        newElement = defaultnewElement.cloneNode(true);
+
         
     }
 
@@ -269,20 +273,20 @@ async function Post_Flashcard() {
 //starts the game
 function FlipButtonShowDisplay(answerID) {
     let currentDisplay = document.getElementById("Question");
-    console.log(answerID);  
     currentDisplay.innerHTML = answerID;
     
 }
 
 async function StartGame(deckID) {
     console.log("start!");
+    document.getElementById("Wrong").style.display = "inline-block";
     let myDecklist = await fetchDeck(userID,deckID);
     console.log(myDecklist);
 
     let currentIteration = 0;
     FlipButtonShowDisplay(myDecklist.Deck_data[currentIteration].Answer)
 
-    console.log("current iteration " + currentIteration);
+    
     let currentQuestion = document.getElementById("Question");
     currentQuestion.innerHTML = myDecklist.Deck_data[currentIteration].Question;
 
@@ -291,7 +295,7 @@ async function StartGame(deckID) {
     let showQuestion = true;
     FlipButton.addEventListener('click',  ()=> 
         {   
-            
+            console.log("current iteration " + currentIteration);
             if(showQuestion == true){
             FlipButtonShowDisplay(myDecklist.Deck_data[currentIteration].Answer);
             showQuestion = false;
@@ -301,7 +305,17 @@ async function StartGame(deckID) {
                 showQuestion = true;
             }
         });
-    NextButton.addEventListener('click', ()=> {FlipButtonShowDisplay(myDecklist.Deck_data[++currentIteration].Question)});
+    NextButton.addEventListener('click', ()=> {
+        console.log("current iteration " + currentIteration);
+        if(currentIteration < myDecklist.Slots-1){
+            ++currentIteration;
+        }
+        if(currentIteration == myDecklist.Slots-1 ){
+            document.getElementById("Wrong").style.display = "none";
+        }
+        FlipButtonShowDisplay(myDecklist.Deck_data[currentIteration].Question)
+        }
+    );
 
 
 }
