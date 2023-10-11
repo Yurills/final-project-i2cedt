@@ -1,16 +1,17 @@
 
-import { fetchDeck, postDeck, getUserInfo, postUserInfo} from './api.js'
+import { fetchDeck, editDeck, postDeck, getUserInfo, postUserInfo} from './api.js'
 
+let userID="Test";
 //authentication
 const login_display = document.getElementById("show-success");
-function registerUser(){
+async function registerUser(){
     login_display.innerHTML = "";
     login_display.style.color = "black";
     
     let username_field = document.getElementById("Input-Username").value;
     let password_field = document.getElementById("Input-Password").value;
 
-    let check_username = getUserInfo(username_field);
+    let check_username = await getUserInfo(username_field);
     console.log(check_username);
     if (check_username != null){
         login_display.innerHTML = "username is taken!";
@@ -20,11 +21,45 @@ function registerUser(){
         postUserInfo(username_field, password_field);
         login_display.innerHTML = "account created!";
         login_display.style.color = "green";
-        console.log("create")
+
+        for (let i=1;i<=5;i++){
+        await register_Create_Flashcard(i, username_field);
+        }
+        
         
     }
     console.log(getUserInfo(username_field));
     
+}
+
+async function loginUser() {
+    login_display.innerHTML = "";
+    login_display.style.color = "black";
+
+    let username_field = document.getElementById("Input-Username").value;
+    let password_field = document.getElementById("Input-Password").value;
+
+    let check_authenticate = await getUserInfo(username_field);
+    console.log(check_authenticate);
+
+    if (check_authenticate === null){
+        login_display.innerHTML = "incorrect id";
+        login_display.style.color = "red";
+    }
+    else {
+        if (password_field == check_authenticate.Password) {
+            console.log("log in!")
+            login_display.innerHTML = "login successfully";
+            login_display.style.color = "greeen";
+            document.getElementById("show-username").innerHTML = `login as: ${username_field}`
+            userID = username_field;
+
+        }
+        else {
+            login_display.innerHTML = "incorrect password";
+            login_display.style.color = "red";
+        }
+    }
 }
 function togglePasswordVisibility() {
     let inputPassword = document.getElementById("Input-Password");
@@ -32,10 +67,11 @@ function togglePasswordVisibility() {
     else inputPassword.type = "password";
     
 }
-let userID = "Test";
+
 
 document.getElementById("Register-Button").addEventListener('click', registerUser);
-document.getElementById("Password-toggle-button").addEventListener('click', togglePasswordVisibility)
+document.getElementById("Login-Button").addEventListener('click', loginUser);
+document.getElementById("Password-toggle-button").addEventListener('click', togglePasswordVisibility);
 
 
 
@@ -115,8 +151,9 @@ QA_Add_Button.addEventListener('click', function () {
 });
 
 async function createEditWrapper(deckID) {
-    let allDeck = await fetchDeck(userID);
-    let myDecklist = allDeck.find(x => x.DeckID == deckID);
+    let myDecklist = await fetchDeck(userID, deckID);
+    console.log(userID+" "+deckID);
+    console.log(myDecklist);
 
     let newElement = defaultnewElement.cloneNode(true);
     console.log(newElement);
@@ -166,7 +203,7 @@ let Edit_Return_Button = document.getElementById("Edit-Return-Button");
 Edit_Return_Button.addEventListener('click', switchDisplay_Edit_Return);
 
 let Edit_Save_Button = document.getElementById("Edit-Save-Button");
-Edit_Save_Button.addEventListener('click', Create_Flashcard);
+Edit_Save_Button.addEventListener('click', Post_Flashcard);
 
 let button_MainDisplay__EDIT = document.getElementById("Main-Display__Edit-Button");
 button_MainDisplay__EDIT.addEventListener('click', switchDisplay_Edit);
@@ -177,7 +214,23 @@ Flashcard_Return_Button.addEventListener('click', switchDisplay_Return);
 let button_MainDisplay__START = document.getElementById("Main-Display__Start-Button");
 button_MainDisplay__START.addEventListener('click', switchDisplay_Start);
 
-function Create_Flashcard() {
+async function register_Create_Flashcard(i ,username) {
+    let createflashcard = {
+        DeckID: i,
+        Deckname: "Your Deck",
+        Slots: 1,
+        Deckdata: [
+            {
+                Question: "Your Question",
+                Answer: "Your Answer"
+            }
+        ],
+        Username: username
+    }
+    await postDeck(createflashcard);
+}
+
+async function Post_Flashcard() {
     let input_question_ClassSet = document.getElementsByClassName("Input-Question");
     let input_answer_Classset = document.getElementsByClassName("Input-Answer");
 
@@ -194,13 +247,14 @@ function Create_Flashcard() {
     ;
     let createflashcard = {
         DeckID: button_Selection_Value,
-        Deckname: document.getElementById("Input-Deck"),
-        Slots: input_question_ClassSet.size, //counting QA-Add
+        Deckname: document.getElementById("Input-DeckName").value,
+        Slots: array_create_Deckdata.length, //counting QA-Add
         Deck_data: array_create_Deckdata,
         Username: userID
     };
-    let temp = JSON.stringify(createflashcard)
-    console.log(JSON.parse(temp));
+   
+    await editDeck(createflashcard);
+    console.log(createflashcard);
     //createflashcard.Deck_data.push(flashcard);
     //saveFlashcard(createflashcard);
 }
@@ -222,8 +276,8 @@ function FlipButtonShowDisplay(answerID) {
 
 async function StartGame(deckID) {
     console.log("start!");
-    let AllmyDecklist = await fetchDeck(userID);
-    let myDecklist = AllmyDecklist.find(x => x.DeckID == deckID);
+    let myDecklist = await fetchDeck(userID,deckID);
+    console.log(myDecklist);
 
     let currentIteration = 0;
     FlipButtonShowDisplay(myDecklist.Deck_data[currentIteration].Answer)
@@ -234,8 +288,19 @@ async function StartGame(deckID) {
 
     let FlipButton = document.getElementById("Correct");
     let NextButton = document.getElementById("Wrong");
-    
-    FlipButton.addEventListener('click',  ()=> {FlipButtonShowDisplay(myDecklist.Deck_data[currentIteration].Answer)});
+    let showQuestion = true;
+    FlipButton.addEventListener('click',  ()=> 
+        {   
+            
+            if(showQuestion == true){
+            FlipButtonShowDisplay(myDecklist.Deck_data[currentIteration].Answer);
+            showQuestion = false;
+            }
+            else {
+                FlipButtonShowDisplay(myDecklist.Deck_data[currentIteration].Question);
+                showQuestion = true;
+            }
+        });
     NextButton.addEventListener('click', ()=> {FlipButtonShowDisplay(myDecklist.Deck_data[++currentIteration].Question)});
 
 

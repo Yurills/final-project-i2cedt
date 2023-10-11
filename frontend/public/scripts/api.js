@@ -1,8 +1,8 @@
 const url = "http://localhost:8080"
 
 //get all the deck data using DeckID as parameter
-export async function fetchDeck(username) {
-    const res = await fetch(`${url}/deckInfo/${username}`);
+export async function fetchDeck(username,deckid) {
+    const res = await fetch(`${url}/deckInfo/user?username=${username}&deckid=${deckid}`);
     const data = await res.json();
     return data;
 }
@@ -16,17 +16,17 @@ export async function postDeck(deckObject) {
             "Content-Type": 'application/json'
         },
         body: JSON.stringify({
-            DeckID: DeckID,
-            Deckname: Deckname,
-            Slots: Slots,
-            Deck_data: Deck_data,
+            DeckID: deckObject.DeckID,
+            Deckname: deckObject.Deckname,
+            Slots: deckObject.Slots,
+            Deck_data: deckObject.Deck_data,
             Username: deckObject.Username
         })
     })
 }
 //edit deck by using deckID, Deck_data parameter is array of JSON object
 export async function editDeck(deckObject) {
-    await fetch(`${url}/deckInfo/${deckObject}` , {
+    await fetch(`${url}/deckInfo/user?username=${deckObject.Username}&deckid=${deckObject.DeckID}` , {
         method: 'PUT',
         headers: {
             "Content-Type": 'application/json'

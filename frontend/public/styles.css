@@ -137,7 +137,7 @@ body {
 #Login-Reg-ButtonHolder{
     display: flex;
     justify-content: center;
-    margin: 20px;
+    margin: 2px;
 }
 
 #Login-Button{
