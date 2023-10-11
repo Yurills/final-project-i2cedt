@@ -354,6 +354,9 @@ async function StartGame(deckID) {
                 showQuestion = true;
             }*/
         });
+    let newNextButtonNode = NextButton.cloneNode(true);
+    NextButton.parentNode.replaceChild(newNextButtonNode, NextButton);
+    NextButton = newNextButtonNode;
     NextButton.addEventListener('click', ()=> {
         console.log("current iteration " + currentIteration);
         if(currentIteration < myDecklist.Slots-1){
